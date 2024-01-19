@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Getting Started with ENTNT Fitness Training App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -11,60 +11,107 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+# Body Fitness - Home Page
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The Home Page component for the Body Fitness web app.
 
-### `npm run build`
+## Overview
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The `HomePage` component is the landing page for the Body Fitness web app. It provides a visually appealing layout with a title strip and a client pane displaying relevant information.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Components Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **ClientView:** A component responsible for rendering client-related information.
 
-### `npm run eject`
+# Body Fitness - ClientView Component
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The `ClientView` component is responsible for rendering a list of clients, allowing users to view, update, and delete client information. It also provides a floating button to add new clients and a button to navigate to the event calendar.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Components Used
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Client:** A component for rendering individual client details.
+- **FloatingAddButton:** A floating button component for adding new clients.
+- **EventCalendar:** A component for displaying an event calendar.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## State and Functionality
 
-## Learn More
+The component manages a state that stores client data, and it includes the following functionalities:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- `addData`: Adds a new client to the list.
+- `updateData`: Updates client information based on the provided ID.
+- `deleteData`: Deletes a client based on the provided ID.
+- `back`: Navigates back from the event calendar to the client list.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Body Fitness - Client Component
 
-### Code Splitting
+The `Client` component is responsible for rendering an individual client's details, allowing users to update and delete client information. It utilizes editable div elements for first name, last name, location, and appointments, along with a DateTimePicker for scheduling appointments.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Components Used
 
-### Analyzing the Bundle Size
+- **EditableDiv:** A component providing editable div elements for dynamic content.
+- **DateTimePicker:** A component for selecting and updating date and time.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Props
 
-### Making a Progressive Web App
+- **id:** The unique identifier for the client.
+- **fname:** The first name of the client.
+- **lname:** The last name of the client.
+- **location:** The location of the client.
+- **appointments:** The scheduled appointments of the client.
+- **update:** A function to update client information.
+- **delete:** A function to delete the client.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## State and Functionality
 
-### Advanced Configuration
+The component manages local state for each client's information and includes the following functionalities:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- `updateFname`: Updates the first name of the client.
+- `updateLname`: Updates the last name of the client.
+- `updateLocation`: Updates the location of the client.
+- `updateAppointments`: Updates the scheduled appointments of the client.
+- `render`: Renders the client details, including editable div elements and a DateTimePicker.
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+# Body Fitness - EditableDiv Component
 
-### `npm run build` fails to minify
+The `EditableDiv` component provides an editable div element for dynamic content. It is designed to be used for various purposes where users can input and edit text content.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Props
+
+- **handler:** A function that handles the input changes and receives the updated content.
+
+## State and Functionality
+
+The component manages a local state for the input handler and includes the following functionalities:
+
+- `componentDidMount`: Sets up the initial selection and focus on the editable div.
+- `handleInput`: Handles the input changes in the editable div and invokes the provided handler function.
+
+# Body Fitness - DateTimePicker Component
+
+The `DateTimePicker` component provides a date and time picker using the `react-datepicker` library. It allows users to select a specific date and time for scheduling appointments.
+
+## Props
+
+- **handler:** A function that handles the date and time changes and receives the formatted date and time string.
+
+## State and Functionality
+
+The component manages local state for the selected date and includes the following functionalities:
+
+- `handleDateChange`: Updates the selected date in the state.
+- `handleUpdateAppointment`: Invokes the provided handler function with the formatted date and time when the "Update Appointment" button is clicked.
+- `formatDateTime`: Formats the selected date into a readable date and time string.
+
+## Usage
+
+To use this component in your project, follow these steps:
+
+1. Install the `react-datepicker` library:
+
+   ```bash
+   npm install react-datepicker
+
+
+
